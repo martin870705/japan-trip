@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大阪・京都 6 天 5 夜</title>
+<meta name="description" content="2026/11/7–11/12 大阪・京都 6 天 5 夜行程">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf4ea;
+    --paper: #fffdf8;
+    --ink: #3a2a20;
+    --muted: #7d6858;
+    --line: #ecdcc6;
+    --maple: #b5412c;
+    --amber: #d8892a;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.7 -apple-system, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  }
+  h1, h2, h3 { font-family: "Noto Serif TC", serif; }
+  a { color: var(--maple); }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+
+  /* hero */
+  header {
+    position: relative;
+    overflow: hidden;
+    color: #fff8ee;
+    background: linear-gradient(150deg, #7a2418 0%, var(--maple) 45%, var(--amber) 100%);
+    padding: 48px 0 40px;
+  }
+  header::before, header::after {
+    content: "🍁";
+    position: absolute;
+    opacity: .18;
+    pointer-events: none;
+  }
+  header::before { font-size: 160px; right: -30px; top: -30px; transform: rotate(20deg); }
+  header::after { font-size: 90px; left: -20px; bottom: -30px; transform: rotate(-25deg); }
+  header .kicker { letter-spacing: .3em; font-size: 13px; opacity: .85; }
+  header h1 { font-size: clamp(30px, 8vw, 46px); line-height: 1.25; margin: 6px 0 12px; }
+  header .meta { display: flex; flex-wrap: wrap; gap: 8px; }
+  header .meta span {
+    background: rgba(255, 248, 238, .16);
+    border: 1px solid rgba(255, 248, 238, .3);
+    border-radius: 999px;
+    padding: 2px 12px;
+    font-size: 14px;
+  }
+
+  /* nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(250, 244, 234, .94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; gap: 4px; overflow-x: auto; padding-top: 8px; padding-bottom: 8px; }
+  nav a {
+    flex: none;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 999px;
+  }
+  nav a:hover { background: var(--line); }
+
+  section { padding: 36px 0 8px; }
+  h2 { font-size: 24px; margin: 0 0 16px; display: flex; align-items: center; gap: 10px; }
+  h2::before { content: ""; width: 6px; height: 24px; border-radius: 3px; background: var(--maple); }
+  h3 { font-size: 17px; margin: 20px 0 8px; color: var(--maple); }
+
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 1px 2px rgba(90, 50, 20, .05);
+  }
+
+  /* overview */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .ov { display: block; padding: 14px 16px; text-decoration: none; color: inherit; position: relative; }
+  .ov .d { font-family: "Noto Serif TC", serif; font-weight: 700; color: var(--maple); font-size: 18px; }
+  .ov .d small { color: var(--muted); font-weight: 500; font-size: 13px; margin-left: 6px; }
+  .ov p { margin: 4px 0 0; font-size: 14px; }
+  .ov .meal { color: var(--muted); font-size: 13px; margin-top: 6px; }
+  .today-badge {
+    position: absolute; top: 12px; right: 12px;
+    background: var(--maple); color: #fff; font-size: 12px;
+    border-radius: 999px; padding: 0 10px;
+  }
+
+  /* days */
+  details.day { margin-bottom: 12px; }
+  details.day > summary {
+    list-style: none; cursor: pointer;
+    padding: 14px 16px;
+    display: flex; gap: 14px; align-items: center;
+  }
+  details.day > summary::-webkit-details-marker { display: none; }
+  details.day > summary::after { content: "＋"; margin-left: auto; color: var(--muted); }
+  details.day[open] > summary::after { content: "－"; }
+  .num {
+    flex: none; width: 76px; text-align: center; white-space: nowrap;
+    font-family: "Noto Serif TC", serif;
+    border-right: 1px solid var(--line); padding-right: 12px;
+  }
+  .num b { display: block; font-size: 22px; color: var(--maple); line-height: 1.1; }
+  .num span { font-size: 12px; color: var(--muted); }
+  .sum-title { font-weight: 600; line-height: 1.45; }
+  .day-body { padding: 0 16px 16px; border-top: 1px dashed var(--line); }
+  .focus {
+    margin: 14px 0 4px; padding: 10px 14px;
+    background: #fbeee0; border-left: 4px solid var(--amber); border-radius: 8px;
+    font-size: 15px;
+  }
+
+  ol.tl { list-style: none; margin: 12px 0 0; padding: 0; }
+  ol.tl li {
+    display: grid; grid-template-columns: 112px 1fr; gap: 10px;
+    padding: 7px 0; border-bottom: 1px solid #f3e8d8; font-size: 15px;
+  }
+  ol.tl li:last-child { border-bottom: 0; }
+  ol.tl time { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 14px; }
+  ol.tl li.hl span { font-weight: 700; color: var(--maple); }
+
+  /* 交通段落 */
+  ol.legs { list-style: none; margin: 0; padding: 0; }
+  ol.legs li {
+    position: relative;
+    padding: 8px 0 8px 22px;
+    border-left: 2px dashed var(--line);
+    margin-left: 6px;
+    font-size: 15px;
+  }
+  ol.legs li::before {
+    content: ""; position: absolute; left: -7px; top: 15px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--paper); border: 2px solid var(--maple);
+  }
+  ol.legs b { display: block; }
+  ol.legs .how { color: var(--muted); font-size: 14px; }
+
+  .pins { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .pins a {
+    text-decoration: none; font-size: 14px;
+    background: #fff; border: 1px solid var(--line); border-radius: 999px;
+    padding: 4px 12px; color: var(--ink);
+  }
+  .pins a::before { content: "📍 "; }
+  .pins a:hover { border-color: var(--maple); color: var(--maple); }
+
+  /* tables */
+  .tbl { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 13px; color: var(--muted); font-weight: 600; background: #f6ecdd; }
+  tr:last-child td { border-bottom: 0; }
+
+  .links { padding: 6px 18px 14px; }
+  .links ul { padding-left: 20px; }
+
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  @media (max-width: 520px) {
+    ol.tl li { grid-template-columns: 1fr; gap: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">OSAKA · KYOTO · AUTUMN 2026</div>
+    <h1>大阪・京都<br>6 天 5 夜</h1>
+    <div class="meta">
+      <span>🗓 2026/11/7（六）– 11/12（四）</span>
+      <span>🏨 天下茶屋站附近</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#overview">總覽</a>
+    <a href="#days">每日行程</a>
+    <a href="#food">餐廳</a>
+    <a href="#links">連結</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ============ 總覽 ============ -->
+<section id="overview">
+  <h2>行程總覽</h2>
+  <div class="grid">
+    <a class="card ov" href="#d1" data-date="2026-11-07">
+      <div class="d">11/7<small>（六）Day 1</small></div>
+      <p>抵達關西機場、天下茶屋放行李、梅田配眼鏡與購物</p>
+      <div class="meal">🍽 晚餐：蟹福 Kanifuku（十三）</div>
+    </a>
+    <a class="card ov" href="#d2" data-date="2026-11-08">
+      <div class="d">11/8<small>（日）Day 2</small></div>
+      <p>日本環球影城 USJ，優先 Donkey Kong 礦車，晚上看街頭殭屍</p>
+      <div class="meal">🍽 園區內用餐</div>
+    </a>
+    <a class="card ov" href="#d3" data-date="2026-11-09">
+      <div class="d">11/9<small>（一）Day 3</small></div>
+      <p>京都：清水寺、二年坂／三年坂、八坂神社、祇園、高台寺夜間點燈</p>
+      <div class="meal">🍽 京都午餐；晚餐視體力在京都解決</div>
+    </a>
+    <a class="card ov" href="#d4" data-date="2026-11-10">
+      <div class="d">11/10<small>（二）Day 4</small></div>
+      <p>木津市場、難波八阪神社、日本橋、心齋橋、道頓堀、MACHO BAR</p>
+      <div class="meal">🍽 午餐：燒肉麓の宮</div>
+    </a>
+    <a class="card ov" href="#d5" data-date="2026-11-11">
+      <div class="d">11/11<small>（三）Day 5</small></div>
+      <p>大鳥大社、梅田藝術展、取眼鏡、梅田購物</p>
+      <div class="meal">🍽 午餐：壽司（待選）；晚餐：SUKIYAKI FUJIMOTO</div>
+    </a>
+    <a class="card ov" href="#d6" data-date="2026-11-12">
+      <div class="d">11/12<small>（四）Day 6</small></div>
+      <p>退房、前往關西機場，14:00 起飛返台</p>
+      <div class="meal">🍽 機場簡餐</div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ 每日行程 ============ -->
+<section id="days">
+  <h2>每日行程</h2>
+
+  <!-- Day 1 -->
+  <details class="card day" id="d1" data-date="2026-11-07">
+    <summary>
+      <div class="num"><b>11/7</b><span>六・Day 1</span></div>
+      <div class="sum-title">抵達大阪、梅田購物、蟹福</div>
+    </summary>
+    <div class="day-body">
+      <div class="focus">抵達日保留彈性，梅田可以逛晚一點，再去營業到深夜的蟹福。</div>
+      <ol class="tl">
+        <li><time>09:20–12:50</time><span>桃園機場起飛，抵達關西機場</span></li>
+        <li><time>12:50–15:30</time><span>入境、領行李，搭機場包車前往天下茶屋住宿</span></li>
+        <li><time>15:30–16:15</time><span>放行李、稍作休息</span></li>
+        <li><time>16:15–19:30</time><span>前往梅田：配眼鏡、逛 LUCUA、HEP FIVE、Yodobashi Camera 等</span></li>
+        <li><time>19:30–20:00</time><span>從梅田搭阪急到十三站，再步行到蟹福</span></li>
+        <li class="hl"><time>約 20:00–21:30</time><span>晚餐：蟹福 Kanifuku</span></li>
+        <li><time>21:30–22:30</time><span>返回天下茶屋</span></li>
+      </ol>
+      <h3>交通</h3>
+      <ol class="legs">
+        <li><b>關西機場 → 天下茶屋住宿</b><span class="how">機場包車接送</span></li>
+        <li><b>天下茶屋 → 梅田</b><span class="how">南海電鐵至難波 → Osaka Metro 御堂筋線至梅田</span></li>
+        <li><b>梅田 → 十三（蟹福）</b><span class="how">阪急大阪梅田站搭京都線／寶塚線／神戶線，一站到十三 → 東口步行約 3 分</span></li>
+        <li><b>十三 → 天下茶屋</b><span class="how">阪急回梅田 → 御堂筋線至難波 → 南海電鐵至天下茶屋</span></li>
+      </ol>
+      <div class="pins">
+        <a data-q="関西国際空港">關西機場</a>
+        <a data-q="天下茶屋駅">天下茶屋站</a>
+        <a data-q="LUCUA osaka">LUCUA</a>
+        <a data-q="HEP FIVE 梅田">HEP FIVE</a>
+        <a data-q="ヨドバシカメラ マルチメディア梅田">Yodobashi 梅田</a>
+        <a data-q="かに福 大阪市淀川区十三東3-26-7">蟹福 Kanifuku</a>
+      </div>
+    </div>
+  </details>
+
+  <!-- Day 2 -->
+  <details class="card day" id="d2" data-date="2026-11-08">
+    <summary>
+      <div class="num"><b>11/8</b><span>日・Day 2</span></div>
+      <div class="sum-title">日本環球影城 USJ</div>
+    </summary>
+    <div class="day-body">
+      <div class="focus">沒有 Express Pass，優先衝 Donkey Kong 礦車；晚上留下來看街頭殭屍和舞蹈。</div>
+      <ol class="tl">
+        <li><time>06:30–06:45</time><span>從天下茶屋出發</span></li>
+        <li><time>約 07:15–07:30</time><span>抵達 USJ 周邊，依當日開園時間與排隊狀況調整</span></li>
+        <li><time>開園後</time><span>確認 Super Nintendo World 入場方式與 Donkey Kong 排隊時間</span></li>
+        <li class="hl"><time>上午至中午</time><span>優先挑戰 Donkey Kong 礦車</span></li>
+        <li><time>中午</time><span>園區午餐、補水、休息</span></li>
+        <li><time>下午</time><span>超級任天堂世界、哈利波特、Minions 等</span></li>
+        <li><time>傍晚</time><span>晚餐或小點心，找地方休息</span></li>
+        <li class="hl"><time>晚上</time><span>街頭殭屍、殭屍舞蹈與夜間氣氛</span></li>
+        <li><time>活動結束後</time><span>搭車返回天下茶屋</span></li>
+      </ol>
+      <h3>交通</h3>
+      <ol class="legs">
+        <li><b>天下茶屋 → USJ</b><span class="how">南海電鐵至新今宮 → JR 大阪環狀線至西九條 → JR 夢咲線至 Universal City → 步行約 5 分到園區</span></li>
+        <li><b>USJ → 天下茶屋</b><span class="how">反向搭回：Universal City → 西九條 → 新今宮 → 天下茶屋</span></li>
+      </ol>
+      <div class="pins">
+        <a data-q="ユニバーサル・スタジオ・ジャパン">USJ 環球影城</a>
+        <a data-q="ユニバーサルシティ駅">Universal City 站</a>
+      </div>
+    </div>
+  </details>
+
+  <!-- Day 3 -->
+  <details class="card day" id="d3" data-date="2026-11-09">
+    <summary>
+      <div class="num"><b>11/9</b><span>一・Day 3</span></div>
+      <div class="sum-title">京都東山一日遊</div>
+    </summary>
+    <div class="day-body">
+      <div class="focus">清水寺、京都老街、祇園和高台寺夜間點燈；不塞伏見稻荷，避免太趕。</div>
+      <ol class="tl">
+        <li><time>08:00</time><span>從天下茶屋出發</span></li>
+        <li class="hl"><time>約 09:15–10:45</time><span>清水寺</span></li>
+        <li><time>10:45–11:30</time><span>二年坂、三年坂散步拍照</span></li>
+        <li><time>11:30–12:30</time><span>午餐：Akoya Chaya</span></li>
+        <li><time>12:30–14:00</time><span>京都老街、八坂塔周邊散步拍照</span></li>
+        <li><time>14:00–15:00</time><span>八坂神社</span></li>
+        <li><time>15:00–16:00</time><span>花見小路、祇園一帶散步</span></li>
+        <li><time>16:00–16:45</time><span>咖啡或休息</span></li>
+        <li class="hl"><time>約 17:00–18:30</time><span>高台寺夜間點燈</span></li>
+        <li><time>18:30–19:30</time><span>京都晚餐</span></li>
+        <li><time>約 19:30–21:00</time><span>返回天下茶屋</span></li>
+      </ol>
+      <h3>交通</h3>
+      <ol class="legs">
+        <li><b>天下茶屋 → 北浜</b><span class="how">Osaka Metro 堺筋線（天下茶屋是起站）</span></li>
+        <li><b>北浜 → 清水五条</b><span class="how">京阪本線往京都方向（特急不停清水五条，可在七条轉普通車）</span></li>
+        <li><b>清水五条 → 清水寺</b><span class="how">步行上坡約 20–25 分</span></li>
+        <li><b>清水寺 → 三年坂 → 二年坂 → 八坂塔 → 八坂神社 → 花見小路 → 高台寺</b><span class="how">東山一帶全程步行，各點之間約 5–10 分</span></li>
+        <li><b>祇園四条 → 天下茶屋</b><span class="how">京阪本線至北浜 → 轉堺筋線至天下茶屋</span></li>
+      </ol>
+      <div class="pins">
+        <a data-q="清水五条駅">清水五条站</a>
+        <a data-q="清水寺 京都">清水寺</a>
+        <a data-q="二寧坂 京都">二年坂</a>
+        <a data-q="産寧坂 京都">三年坂</a>
+        <a data-q="あこや茶屋 京都">Akoya Chaya</a>
+        <a data-q="八坂の塔 法観寺">八坂塔</a>
+        <a data-q="八坂神社 京都">八坂神社</a>
+        <a data-q="花見小路通 京都">花見小路</a>
+        <a data-q="高台寺 京都">高台寺</a>
+        <a data-q="祇園四条駅">祇園四条站</a>
+      </div>
+    </div>
+  </details>
+
+  <!-- Day 4 -->
+  <details class="card day" id="d4" data-date="2026-11-10">
+    <summary>
+      <div class="num"><b>11/10</b><span>二・Day 4</span></div>
+      <div class="sum-title">難波、日本橋、心齋橋、燒肉與 MACHO BAR</div>
+    </summary>
+    <div class="day-body">
+      <div class="focus">整天集中在大阪南側，景點之間大多步行；燒肉吃午餐，晚上留給道頓堀和 MACHO BAR。</div>
+      <ol class="tl">
+        <li><time>07:30–09:00</time><span>木津市場早餐</span></li>
+        <li><time>09:30–10:00</time><span>難波八阪神社</span></li>
+        <li><time>10:00–10:45</time><span>前往日本橋</span></li>
+        <li><time>10:45–12:00</time><span>日本橋接心齋橋，四處晃晃</span></li>
+        <li class="hl"><time>12:00–13:30</time><span>午餐：燒肉麓の宮 なんば心齋橋筋店</span></li>
+        <li><time>13:30–17:00</time><span>心齋橋購物：服飾、鞋子、選物店</span></li>
+        <li><time>17:00–18:30</time><span>道頓堀拍照、散步、吃小吃</span></li>
+        <li><time>18:30–19:30</time><span>自由活動、休息</span></li>
+        <li class="hl"><time>19:30 之後</time><span>MACHO BAR</span></li>
+      </ol>
+      <h3>交通</h3>
+      <ol class="legs">
+        <li><b>天下茶屋 → 木津市場</b><span class="how">南海電鐵至難波 → 御堂筋線一站到大國町 → 步行約 5 分</span></li>
+        <li><b>木津市場 → 難波八阪神社</b><span class="how">步行約 10 分</span></li>
+        <li><b>難波八阪神社 → 日本橋 Den Den Town</b><span class="how">步行約 15 分</span></li>
+        <li><b>Den Den Town → 燒肉麓の宮</b><span class="how">步行約 15 分（心齋橋筋 2-3-14，難波站步行約 4–5 分）</span></li>
+        <li><b>麓の宮 → 心齋橋 → 道頓堀 → MACHO BAR</b><span class="how">都在同一區，步行可達</span></li>
+        <li><b>難波 → 天下茶屋</b><span class="how">南海電鐵</span></li>
+      </ol>
+      <div class="pins">
+        <a data-q="木津卸売市場">木津市場</a>
+        <a data-q="難波八阪神社">難波八阪神社</a>
+        <a data-q="日本橋 でんでんタウン">Den Den Town</a>
+        <a data-q="焼肉 麓の宮 大阪市中央区心斎橋筋2-3-14">燒肉麓の宮</a>
+        <a data-q="心斎橋筋商店街">心齋橋筋商店街</a>
+        <a data-q="道頓堀">道頓堀</a>
+        <a data-q="MACHO BAR 大阪">MACHO BAR</a>
+      </div>
+    </div>
+  </details>
+
+  <!-- Day 5 -->
+  <details class="card day" id="d5" data-date="2026-11-11">
+    <summary>
+      <div class="num"><b>11/11</b><span>三・Day 5</span></div>
+      <div class="sum-title">大鳥大社、藝術展、梅田取眼鏡與壽喜燒</div>
+    </summary>
+    <div class="day-body">
+      <div class="focus">大鳥大社必去；藝術展安排在梅田，順便取眼鏡、購物，晚餐再去四橋的 Fujimoto。</div>
+      <ol class="tl">
+        <li><time>約 08:00</time><span>從天下茶屋出發前往大鳥大社</span></li>
+        <li class="hl"><time>約 09:00–10:15</time><span>大鳥大社參拜、拍照</span></li>
+        <li><time>10:15–11:30</time><span>前往梅田</span></li>
+        <li><time>11:30–12:15</time><span>梅田午餐：壽司店（尚未選定）</span></li>
+        <li><time>12:30–14:00</time><span>絹谷幸二天空美術館（梅田藍天大廈 Tower West 27F）</span></li>
+        <li><time>14:00–14:30</time><span>前往眼鏡店</span></li>
+        <li><time>14:30–15:00</time><span>領取眼鏡</span></li>
+        <li><time>15:00–17:00</time><span>梅田購物、補買伴手禮或服飾</span></li>
+        <li><time>17:00–18:00</time><span>從梅田前往四橋／北堀江</span></li>
+        <li class="hl"><time>約 18:00–19:30</time><span>晚餐：SUKIYAKI FUJIMOTO</span></li>
+        <li><time>19:30 之後</time><span>返回天下茶屋；有體力可在心齋橋附近散步</span></li>
+      </ol>
+      <h3>交通</h3>
+      <ol class="legs">
+        <li><b>天下茶屋 → 大鳥大社</b><span class="how">南海電鐵至新今宮 → JR 環狀線至天王寺 → JR 阪和線至鳳站 → 西口步行約 5 分</span></li>
+        <li><b>大鳥大社 → 梅田</b><span class="how">鳳站搭 JR 阪和線至天王寺 → JR 環狀線至大阪站</span></li>
+        <li><b>大阪站 → 梅田藍天大廈</b><span class="how">步行約 10 分</span></li>
+        <li><b>梅田 → 四橋（Fujimoto）</b><span class="how">Osaka Metro 四つ橋線 西梅田站 → 四ツ橋站，4 號出口步行（北堀江 1-6-24）</span></li>
+        <li><b>四橋 → 天下茶屋</b><span class="how">四つ橋線至難波 → 南海電鐵至天下茶屋</span></li>
+      </ol>
+      <div class="pins">
+        <a data-q="鳳駅">JR 鳳站</a>
+        <a data-q="大鳥大社">大鳥大社</a>
+        <a data-q="絹谷幸二 天空美術館">絹谷幸二天空美術館</a>
+        <a data-q="すき焼き ふじもと 大阪市西区北堀江1-6-24">SUKIYAKI FUJIMOTO</a>
+      </div>
+    </div>
+  </details>
+
+  <!-- Day 6 -->
+  <details class="card day" id="d6" data-date="2026-11-12">
+    <summary>
+      <div class="num"><b>11/12</b><span>四・Day 6</span></div>
+      <div class="sum-title">回程</div>
+    </summary>
+    <div class="day-body">
+      <ol class="tl">
+        <li><time>07:30–08:30</time><span>早餐</span></li>
+        <li><time>08:30–09:15</time><span>整理行李、退房</span></li>
+        <li><time>約 09:15</time><span>搭機場包車從住宿前往關西機場</span></li>
+        <li><time>約 10:15–10:30</time><span>抵達關西機場</span></li>
+        <li><time>10:30–12:00</time><span>報到、托運、安檢、出境</span></li>
+        <li><time>12:00–13:00</time><span>機場用餐、候機</span></li>
+        <li class="hl"><time>14:00</time><span>起飛返台</span></li>
+      </ol>
+      <h3>交通</h3>
+      <ol class="legs">
+        <li><b>天下茶屋住宿 → 關西機場</b><span class="how">機場包車接送</span></li>
+      </ol>
+      <div class="pins">
+        <a data-q="天下茶屋駅">天下茶屋站</a>
+        <a data-q="関西国際空港">關西機場</a>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ 餐廳 ============ -->
+<section id="food">
+  <h2>餐廳安排</h2>
+  <div class="card tbl">
+    <table>
+      <thead><tr><th>日期</th><th>餐別</th><th>餐廳</th></tr></thead>
+      <tbody>
+        <tr><td>11/7</td><td>晚餐</td><td><a href="https://kanifuku.owst.jp/" target="_blank" rel="noopener">蟹福 Kanifuku</a>（十三）</td></tr>
+        <tr><td>11/9</td><td>午餐</td><td>Akoya Chaya（清水寺附近）</td></tr>
+        <tr><td>11/10</td><td>午餐</td><td><a href="https://ad.rokunomiya.jp/zh-tw" target="_blank" rel="noopener">燒肉麓の宮</a>（難波）</td></tr>
+        <tr><td>11/11</td><td>午餐</td><td>壽司店（待選，梅田一帶）</td></tr>
+        <tr><td>11/11</td><td>晚餐</td><td><a href="https://map.yahoo.co.jp/v3/place/yceZRat_2YI" target="_blank" rel="noopener">SUKIYAKI FUJIMOTO</a>（四橋）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 連結 ============ -->
+<section id="links">
+  <h2>官方／參考連結</h2>
+  <div class="card links">
+    <ul>
+      <li><a href="https://kanifuku.owst.jp/" target="_blank" rel="noopener">蟹福 Kanifuku</a></li>
+      <li><a href="https://www.usj.co.jp/web/zh/tw" target="_blank" rel="noopener">USJ 官方網站</a></li>
+      <li><a href="https://ad.rokunomiya.jp/zh-tw" target="_blank" rel="noopener">燒肉麓の宮</a>（<a href="https://akr4742213476.owst.jp/menu" target="_blank" rel="noopener">套餐資訊</a>）</li>
+      <li><a href="https://www.macho-bar.com/" target="_blank" rel="noopener">MACHO BAR</a></li>
+      <li><a href="https://www.ootoritaisha.jp/access/" target="_blank" rel="noopener">大鳥大社交通</a></li>
+      <li><a href="https://www.kinutani-tenku.jp/access/" target="_blank" rel="noopener">絹谷幸二天空美術館</a></li>
+      <li><a href="https://map.yahoo.co.jp/v3/place/yceZRat_2YI" target="_blank" rel="noopener">SUKIYAKI FUJIMOTO 店家資訊</a></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>🍁 大阪・京都 6 天 5 夜・2026</footer>
+
+<script>
+  document.querySelectorAll('a[data-q]').forEach(a => {
+    a.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(a.dataset.q);
+    a.target = '_blank';
+    a.rel = 'noopener';
+  });
+
+  // 旅行期間自動展開當天行程
+  const d = new Date();
+  const today = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  document.querySelectorAll('[data-date="' + today + '"]').forEach(el => {
+    if (el.tagName === 'DETAILS') el.open = true;
+    else el.insertAdjacentHTML('beforeend', '<span class="today-badge">今天</span>');
+  });
+</script>
+</body>
+</html>
